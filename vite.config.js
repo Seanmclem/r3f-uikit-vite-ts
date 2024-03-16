@@ -1,4 +1,5 @@
-import { resolve } from "path";
+import path from "path";
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -9,9 +10,10 @@ const server = process.env.APP_ENV === "sandbox" ? { hmr: { clientPort: 443 } } 
 export default defineConfig({
   server: server,
   resolve: {
-    alias: {
-      "@src": resolve(__dirname, "./src"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src/packages/kits/default") },
+      { find: "@src", replacement: path.resolve(__dirname, "./src") },
+    ],
   },
   plugins: [react()],
 });

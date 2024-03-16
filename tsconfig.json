@@ -11,18 +11,12 @@
     "strictNullChecks": false,
     "jsx": "preserve",
     "declaration": true,
-    "lib": [
-      "es2022",
-      "dom"
-    ],
-    "types": [
-      "@react-three/fiber"
-    ]
+    "lib": ["es2022", "dom"],
+    "types": ["@react-three/fiber"]
   },
-  "include": [
-    "."
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["."],
+  "exclude": ["node_modules"],
+  "paths": {
+    "@/*": ["./src/packages/kits/default/*"]
+  }
 }
